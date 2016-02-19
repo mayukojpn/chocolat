@@ -148,11 +148,15 @@ div.globalnav ul li {
 
 div.globalnav ul li:last-child {
 	border-bottom: none;
-} 
+}
 
 div.globalnav ul li a {
 	height: 45px;
 	line-height: 45px;
+}
+
+div.globalnav ul li a small {
+    padding-left: 1em;
 }
 
 div.globalnav ul li a:hover {
@@ -295,10 +299,30 @@ div.globalnav > ul > li:first-child {
 	box-shadow:         1px 0 0 #fefdfb inset;
 }
 
-div.globalnav > ul > li > a {
+div.globalnav ul li a {
 	height: 36px;
 	line-height: 36px;
 	padding: 0 20px;
+  text-align: center;
+}
+
+div.globalnav ul li a span {
+  top: -0.5em;
+  position: relative;
+}
+
+div.globalnav ul li a small {
+  display: block;
+  line-height: 0.5em;
+	margin-top: -0.3em;
+}
+
+div.globalnav > ul > li > a > span {
+	top: -0.3em;
+}
+
+div.globalnav > ul > li > a > small {
+  margin-top: -1.2em;
 }
 
 div.globalnav li:hover > a,

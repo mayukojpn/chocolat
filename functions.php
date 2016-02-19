@@ -272,6 +272,21 @@ function chocolat_page_menu_args( $args ) {
 endif;
 add_filter( 'wp_page_menu_args', 'chocolat_page_menu_args' );
 
+// When the navigation item has description,
+// it will be shown after item title.
+if ( ! function_exists( 'chocolat_walker_nav_menu_start_el' ) ) :
+function chocolat_walker_nav_menu_start_el( $item_output, $item, $depth, $args ) {
+	if ( $args->theme_location === 'globalnav' && !empty( $item->description ) ) {
+		$pattern     = '/(<a.*?>)([^<]*?)(<\/a>)/';
+		$replacement = '$1<span>$2</span><small>' . esc_html( $item->description ) . '</small>$3';
+		return preg_replace( $pattern, $replacement, $item_output );
+	}
+	return $item_output;
+}
+endif;
+add_filter( 'walker_nav_menu_start_el', 'chocolat_walker_nav_menu_start_el', 10, 4 );
+
+
 /* ----------------------------------------------
  * 2.1.3 - editor-style
  * --------------------------------------------*/
